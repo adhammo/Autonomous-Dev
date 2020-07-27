@@ -85,10 +85,11 @@ for i in range(4):
     cv2.circle(img_edt, (rect_pts[i][0], rect_pts[i][1]), 5, (0, 0, 255), cv2.FILLED)
 
 # Calculate road width
-road_width = 75 * (distance(rect_road_escape_pts[0], rect_road_escape_pts[2]) / distance(rect_pts[0], rect_pts[2]))
+road_width = 75 * (distance(rect_road_escape_pts[0], rect_road_escape_pts[1]) / distance(rect_pts[0], rect_pts[1]))
+road_height = 75 * (distance(rect_road_escape_pts[0], rect_road_escape_pts[2]) / distance(rect_pts[0], rect_pts[2]))
 
 # Calculate output size
-width, height = int(75 * (distance(rect_road_escape_pts[0], rect_road_escape_pts[1]) / distance(rect_pts[0], rect_pts[1]))), int(road_width)
+width, height = int(road_width), int(road_height)
 screen_pts = [[0, 0], [width, 0], [0, height], [width, height]]
 
 # Wrap perspective and output image
